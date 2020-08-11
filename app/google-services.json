@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1005336023165",
+    "firebase_url": "https://chatapp-6c325.firebaseio.com",
+    "project_id": "chatapp-6c325",
+    "storage_bucket": "chatapp-6c325.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005336023165:android:3acf85c65d6188ec5f6114",
+        "android_client_info": {
+          "package_name": "com.tranthibich.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005336023165-e14kcpce9edisndnrjatn6nf9bmpdd2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBon2NtvdA8EGmV1M-EdAxbKiVU-R9slz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005336023165-e14kcpce9edisndnrjatn6nf9bmpdd2u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
