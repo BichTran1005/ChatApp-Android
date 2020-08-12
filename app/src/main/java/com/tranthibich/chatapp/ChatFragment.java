@@ -70,6 +70,8 @@ public class ChatFragment extends Fragment {
         IntializeFields();
 
 
+
+
         return privateChatsView;
     }
 
@@ -132,6 +134,78 @@ public class ChatFragment extends Fragment {
 
                                                             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                                                             builder.setTitle(requestUserName + "Chat Request");
+
+                                                            holder.acceptButton.setOnClickListener(new View.OnClickListener() {
+                                                                @Override
+                                                                public void onClick(View v) {
+                                                                    contactRef.child(currentUserID).child(listUserID)
+                                                                            .child("Contact").setValue("Saved").addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                        @Override
+                                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                                            if(task.isSuccessful())
+                                                                            {
+                                                                                contactRef.child(listUserID).child(currentUserID)
+                                                                                        .child("Contact").setValue("Saved").addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                                    @Override
+                                                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                                                        if(task.isSuccessful())
+                                                                                        {
+                                                                                            chatRequestRef.child(currentUserID)
+                                                                                                    .child(listUserID).removeValue()
+                                                                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                                                        @Override
+                                                                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                                                                            if(task.isSuccessful())
+                                                                                                            {
+                                                                                                                chatRequestRef.child(listUserID)
+                                                                                                                        .child(currentUserID).removeValue()
+                                                                                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                                                                            @Override
+                                                                                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                                                                                if(task.isSuccessful())
+                                                                                                                                {
+                                                                                                                                    Toast.makeText(getContext(), "Lưu Liên Hệ", Toast.LENGTH_SHORT).show();
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        });
+                                                                                                            }
+                                                                                                        }
+                                                                                                    });
+                                                                                        }
+                                                                                    }
+                                                                                });
+                                                                            }
+                                                                        }
+                                                                    });
+
+                                                                    holder.cancelButton.setOnClickListener(new View.OnClickListener() {
+                                                                        @Override
+                                                                        public void onClick(View v) {
+                                                                            chatRequestRef.child(currentUserID)
+                                                                                    .child(listUserID).removeValue()
+                                                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                                        @Override
+                                                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                                                            if(task.isSuccessful())
+                                                                                            {
+                                                                                                chatRequestRef.child(listUserID)
+                                                                                                        .child(currentUserID).removeValue()
+                                                                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                                                            @Override
+                                                                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                                                                if(task.isSuccessful())
+                                                                                                                {
+                                                                                                                    Toast.makeText(getContext(), "Xóa Liên Hệ", Toast.LENGTH_SHORT).show();
+                                                                                                                }
+                                                                                                            }
+                                                                                                        });
+                                                                                            }
+                                                                                        }
+                                                                                    });
+                                                                        }
+                                                                    });
+                                                                }
+                                                            });
 
                                                             builder.setItems(options, new DialogInterface.OnClickListener() {
                                                                 @Override

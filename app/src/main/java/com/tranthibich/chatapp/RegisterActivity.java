@@ -119,7 +119,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void SendToMainActivity() {
-        Intent main = new Intent(RegisterActivity.this, MainActivity.class);
+        Intent main = new Intent(RegisterActivity.this, SettingsActivity.class);
         main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(main);
         finish();

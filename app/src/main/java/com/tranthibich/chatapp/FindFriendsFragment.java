@@ -124,12 +124,21 @@ public class FindFriendsFragment extends Fragment {
                             }
                             else
                             {
-                                String profileName = snapshot.child("name").getValue().toString();
-                                String profileStatus= snapshot.child("status").getValue().toString();
+                                if(snapshot.hasChild("name")) {
+                                    String profileName = snapshot.child("name").getValue().toString();
+                                    String profileStatus = snapshot.child("status").getValue().toString();
 
-                                holder.userName.setText(profileName);
-                                holder.userStatus.setText(profileStatus);
+                                    holder.userName.setText(profileName);
+                                    holder.userStatus.setText(profileStatus);
+                                }
+                               /* else
+                                {
+                                    Intent setting = new Intent(getContext(), SettingsActivity.class);
+                                    startActivity(setting);
+                                }*/
+
                             }
+
                         }
                     }
 

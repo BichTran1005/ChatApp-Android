@@ -35,6 +35,8 @@ import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -54,6 +56,7 @@ public class SettingFragment extends Fragment {
     private CircleImageView userProfileImage;
 
     private String curentUserID;
+    private String currentUserID;
     private FirebaseAuth mAuth;
     private DatabaseReference rootRef;
 
@@ -107,6 +110,7 @@ public class SettingFragment extends Fragment {
 
         return settingFragmentView;
     }
+
 
     private void RetrieveUserInfo()
     {
